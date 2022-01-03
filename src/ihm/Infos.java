@@ -1,6 +1,7 @@
 
 package ihm;
 
+import bdd.UserDAO;
 import fr.solutec.model.User;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -99,6 +100,11 @@ public class Infos extends javax.swing.JFrame {
 
         btRetour.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         btRetour.setText("Retour");
+        btRetour.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btRetourActionPerformed(evt);
+            }
+        });
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
@@ -246,17 +252,39 @@ public class Infos extends javax.swing.JFrame {
         String sexe = txtSexe.getText();
         Double taille = Double.parseDouble(txtTaille.getText());
         Double poids = Double.parseDouble(txtPoids.getText());
+        
         try {
             Date dateDeNaissance = new SimpleDateFormat("dd/MM/yyyy").parse(txtDateDeNaissance.getText());
         } catch (Exception e) {
             JOptionPane.showMessageDialog(rootPane, "Exp : " + e.getMessage());
         }
         
-        ////pasfini
+        User u = Connexion.u;
+        u.setMail(login);
+        u.setMdp(mdp);
+        u.setNom(nom);
+        u.setPrenom(prenom);
+        u.setSexe(sexe);
+        u.setTaille(taille);
+        u.setPoids(poids);
+        //u.setDate_de_naissance(dateDeNaissance);
+        try {
+            UserDAO.modifyUser(u);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(rootPane, "Exp : " + e.getMessage());
+        }
         
         JOptionPane.showMessageDialog(rootPane, "Votre profil a été mis à jour.");
 
     }//GEN-LAST:event_btModifierActionPerformed
+
+    private void btRetourActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btRetourActionPerformed
+        
+        Principal fenetrePrincipale = new Principal();
+        fenetrePrincipale.setVisible(true);
+        this.setVisible(false);
+        
+    }//GEN-LAST:event_btRetourActionPerformed
 
     /**
      * @param args the command line arguments

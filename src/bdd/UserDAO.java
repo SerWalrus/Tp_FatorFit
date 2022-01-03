@@ -49,6 +49,23 @@ public class UserDAO {
         prepare.execute();
     }
     
+    public static void modifyUser(User u) throws SQLException {
+        String sql = "UPDATE users SET nom = ?, prenom = ?, mail = ?, mdp = ?, taille = ?, sexe = ?, poids = ? WHERE mail = ?";
+        Connection connexion = AccessBD.getConnection();
+        PreparedStatement prepare = connexion.prepareStatement(sql);
+        prepare.setString(1, u.getNom());
+        prepare.setString(2, u.getPrenom());
+        prepare.setString(3, u.getMail());
+        prepare.setString(4, u.getMdp());
+        prepare.setDouble(5, u.getTaille());
+        prepare.setString(6, u.getSexe());
+        prepare.setDouble(7, u.getPoids());
+        prepare.setString(8, u.getMail());
+        prepare.execute();
+    }
+    
+    
+    
     public static void changeObjectif (Objectif o, User u) throws SQLException {
         String sql = "UPDATE objectifs SET temps_marche = ?, temps_course = ?, poids = ? WHERE id_user = ?";
         Connection connexion = AccessBD.getConnection();
