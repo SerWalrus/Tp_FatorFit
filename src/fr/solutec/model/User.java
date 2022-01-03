@@ -17,17 +17,25 @@ public class User {
     private String prenom;
     private String mail;
     private String mdp;
+    private double taille;
+    private String sexe;
+    private double poids;
+    private Date date_de_naissance;
     private Date last_deconnexion;
     
     public User(){
     }
 
-    public User(int id, String nom, String prenom, String mail, String mdp, Date last_deconnexion) {
+    public User(int id, String nom, String prenom, String mail, String mdp, double taille, String sexe, double poids, Date date_de_naissance, Date last_deconnexion) {
         this.id = id;
         this.nom = nom;
         this.prenom = prenom;
         this.mail = mail;
         this.mdp = mdp;
+        this.taille = taille;
+        this.sexe = sexe;
+        this.poids = poids;
+        this.date_de_naissance = date_de_naissance;
         this.last_deconnexion = last_deconnexion;
     }
 
@@ -71,6 +79,38 @@ public class User {
         this.mdp = mdp;
     }
 
+    public double getTaille() {
+        return taille;
+    }
+
+    public void setTaille(double taille) {
+        this.taille = taille;
+    }
+
+    public String getSexe() {
+        return sexe;
+    }
+
+    public void setSexe(String sexe) {
+        this.sexe = sexe;
+    }
+
+    public double getPoids() {
+        return poids;
+    }
+
+    public void setPoids(double poids) {
+        this.poids = poids;
+    }
+
+    public Date getDate_de_naissance() {
+        return date_de_naissance;
+    }
+
+    public void setDate_de_naissance(Date date_de_naissance) {
+        this.date_de_naissance = date_de_naissance;
+    }
+
     public Date getLast_deconnexion() {
         return last_deconnexion;
     }
@@ -78,4 +118,6 @@ public class User {
     public void setLast_deconnexion(Date last_deconnexion) {
         this.last_deconnexion = last_deconnexion;
     }
+
+    
 }
