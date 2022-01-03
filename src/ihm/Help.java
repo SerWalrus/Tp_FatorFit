@@ -118,7 +118,9 @@ public class Help extends javax.swing.JFrame {
 
     private void bt_menu_principalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_menu_principalActionPerformed
         Help h = new Help();
-        
+        Principal p = new Principal();
+        p.setVisible(true);
+        h.setVisible(false);
     }//GEN-LAST:event_bt_menu_principalActionPerformed
 
     /**
