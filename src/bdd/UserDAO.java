@@ -12,6 +12,7 @@ import java.sql.SQLException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import fr.solutec.model.User;
+import java.util.Date;
 
 public class UserDAO {
     public static User getByLoginAndPassword(String mail, String mdp) throws SQLException{
@@ -58,6 +59,17 @@ public class UserDAO {
         prepare.setDouble(2, o.getTemps_de_marche());
         prepare.setDouble(3, o.getPoids());
         prepare.setInt(4, u.getId());
+        prepare.execute();
+    }
+    
+    public static void modifyConnexionDateByUser (User u)throws SQLException{
+        Date d = new Date();
+        java.sql.Date sqlDate = new java.sql.Date(d.getDate());
+        String sql = "UPDATE users SET date_connection=? WHERE id_user = ?";
+        Connection connexion = AccessBD.getConnection();
+        PreparedStatement prepare = connexion.prepareStatement(sql);
+        prepare.setDate(1, sqlDate);
+        prepare.setInt(2, u.getId());
         prepare.execute();
     }
 }

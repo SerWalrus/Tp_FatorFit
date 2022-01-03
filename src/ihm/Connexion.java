@@ -136,12 +136,14 @@ public class Connexion extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtMdpActionPerformed
 
+    static User u;
+    
     private void toggleCoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toggleCoActionPerformed
         // TODO add your handling code here:
         String login = txtLog.getText();
         String mdp = txtMdp.getText();
         try {
-             User u = UserDAO.getByLoginAndPassword(login, mdp);
+             u = UserDAO.getByLoginAndPassword(login, mdp);
              if (u != null) {
                  JOptionPane.showMessageDialog(rootPane, "C'est parti ma poule");
                   Principal p = new Principal();
