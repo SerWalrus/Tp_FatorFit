@@ -38,13 +38,24 @@ public class UserDAO {
     }
     
     public static void insertUser(User u) throws SQLException {
-        String sql = "INSERT INTO personnes (nom, prenom, mail, mdp) VALUES (?, ?, ?, ?)";
-        Connection connexion = AccessBD.getConnection();
+        String sql = "INSERT INTO users(nom, prenom, mail, mdp) VALUES (?, ?, ?, ?)";
+        Connection connexion = AccessBd.getConnection();
         PreparedStatement prepare = connexion.prepareStatement(sql);
         prepare.setString(1, u.getNom());
         prepare.setString(2, u.getPrenom());
         prepare.setString(3, u.getMail());
         prepare.setString(4, u.getMdp());
+        prepare.execute();
+    }
+    
+    public static void changeObjectif (Objectif o, User u) throws SQLException {
+        String sql = "UPDATE objectifs SET temps_marche = ?, temps_course = ?, poids = ? WHERE id_user = ?";
+        Connection connexion = AccessBd.getConnection();
+        PreparedStatement prepare = connexion.prepareStatement(sql);
+        prepare.setString(1, o.getTemps_de_course());
+        prepare.setString(2, o.getTemps_de_marche());
+        prepare.setString(3, o.getPoids());
+        prepare.setString(4, u.getId());
         prepare.execute();
     }
 }
