@@ -5,9 +5,10 @@
  */
 package ihm;
 
+import bdd.UserDAO;
 import fr.solutec.model.User;
 import javax.swing.JOptionPane;
-
+import java.sql.Date;
 /**
  *
  * @author dsi
