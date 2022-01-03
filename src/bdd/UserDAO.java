@@ -16,7 +16,7 @@ public class UserDAO {
     public static User getByLoginAndPassword(String mail, String mdp) throws SQLException{
         User u = null;
         String sql = "SELECT * FROM users WHERE mail = ? AND mdp = ?";
-        Connection connexion = AccessBd.getConnection();
+        Connection connexion = AccessBD.getConnection();
         PreparedStatement prepare = connexion.prepareStatement(sql);
         prepare.setString(1, mail);
         prepare.setString(2, mdp);
@@ -47,15 +47,15 @@ public class UserDAO {
         prepare.setString(4, u.getMdp());
         prepare.execute();
     }
-
-    public static void changeObjectif (Objectif o) throws SQLException {
+    
+    public static void changeObjectif (Objectif o, User u) throws SQLException {
         String sql = "UPDATE objectifs SET temps_marche = ?, temps_course = ?, poids = ? WHERE id_user = ?";
         Connection connexion = AccessBd.getConnection();
         PreparedStatement prepare = connexion.prepareStatement(sql);
         prepare.setString(1, o.getTemps_de_course());
         prepare.setString(2, o.getTemps_de_marche());
         prepare.setString(3, o.getPoids());
-        // à finir
+        prepare.setString(4, u.getId());
         prepare.execute();
     }
 }

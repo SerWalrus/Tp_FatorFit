@@ -5,8 +5,12 @@
  */
 package ihm;
 
+import bdd.UserDAO;
 import fr.solutec.model.User;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import javax.swing.JOptionPane;
+import java.util.Date;
 
 /**
  *
@@ -136,19 +140,20 @@ public class Insciption extends javax.swing.JFrame {
         String mdp = txtMdp.getText();
         String nom = txtNom.getText();
         String prenom = txtPrenom.getText();
-        
-        User u = new User();
-        
+
         try {
-             UserDAO.insertUser(u);
-             if (u != null) {
-                 JOptionPane.showMessageDialog(rootPane, "Tout roule");
+
+            DateFormat d = new SimpleDateFormat("dd/MM/yyyy");
+            User u = new User(0, nom, prenom, login, mdp, 1.80, " ", 80, d.parse("17/12/2021"), d.parse("15/12/2021"));
+
+            UserDAO.insertUser(u);
+            if (u != null) {
+                JOptionPane.showMessageDialog(rootPane, "Tout roule");
+            } else {
+                JOptionPane.showMessageDialog(rootPane, "roule pas");
             }
-             else{
-             JOptionPane.showMessageDialog(rootPane, "roule pas");
-             }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(rootPane, "Exp :"+e.getMessage());
+            JOptionPane.showMessageDialog(rootPane, "Exp :" + e.getMessage());
         }
     }//GEN-LAST:event_toggleValidActionPerformed
 
