@@ -10,5 +10,5 @@ package fr.solutec.model;
  * @author dsi
  */
 public class Recap {
-    
+    private User user;
 }
