@@ -145,7 +145,8 @@ public class Connexion extends javax.swing.JFrame {
              if (u != null) {
                  JOptionPane.showMessageDialog(rootPane, "C'est parti ma poule");
                   Principal p = new Principal();
-                  p.setVisible(true); 
+                  p.setVisible(true);
+                  this.setVisible(false);
             }
              else{
              JOptionPane.showMessageDialog(rootPane, "Dommage essaye encore");
