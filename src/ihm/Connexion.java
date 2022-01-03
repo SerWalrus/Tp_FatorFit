@@ -149,6 +149,7 @@ public class Connexion extends javax.swing.JFrame {
                   Principal p = new Principal();
                   p.setVisible(true);
                   this.setVisible(false);
+                  UserDAO.setConnexionDateByUser(u);
             }
              else{
              JOptionPane.showMessageDialog(rootPane, "Dommage essaye encore");
