@@ -53,6 +53,11 @@ public class Principal extends javax.swing.JFrame {
         });
 
         toggleInf.setText("Informations");
+        toggleInf.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                toggleInfActionPerformed(evt);
+            }
+        });
 
         toggleAide.setText("Aide");
         toggleAide.addActionListener(new java.awt.event.ActionListener() {
@@ -62,6 +67,11 @@ public class Principal extends javax.swing.JFrame {
         });
 
         toggleRecap.setText("Récapitulatif");
+        toggleRecap.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                toggleRecapActionPerformed(evt);
+            }
+        });
 
         toggleDeco.setText("Déconnexion");
         toggleDeco.addActionListener(new java.awt.event.ActionListener() {
@@ -140,12 +150,27 @@ public class Principal extends javax.swing.JFrame {
         // TODO add your handling code here:
        Objectifs o = new Objectifs();
        o.setVisible(true);
+       this.setVisible(false);
     }//GEN-LAST:event_toggleObjActionPerformed
 
     private void toggleAideActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toggleAideActionPerformed
         this.setVisible(false);
         new Help().setVisible(true);
     }//GEN-LAST:event_toggleAideActionPerformed
+
+    private void toggleInfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toggleInfActionPerformed
+        // TODO add your handling code here:
+       Infos i = new Infos();
+       i.setVisible(true);
+       this.setVisible(false);
+    }//GEN-LAST:event_toggleInfActionPerformed
+
+    private void toggleRecapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toggleRecapActionPerformed
+        // TODO add your handling code here:
+       Recap r = new Recap();
+       r.setVisible(true);
+       this.setVisible(false);
+    }//GEN-LAST:event_toggleRecapActionPerformed
 
     /**
      * @param args the command line arguments

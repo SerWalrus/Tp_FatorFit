@@ -98,6 +98,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Informations"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="toggleInfActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JToggleButton" name="toggleAide">
       <Properties>
@@ -111,6 +114,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="R&#xe9;capitulatif"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="toggleRecapActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JToggleButton" name="toggleDeco">
       <Properties>
