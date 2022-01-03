@@ -143,10 +143,13 @@ public class Connexion extends javax.swing.JFrame {
         try {
              User u = UserDAO.getByLoginAndPassword(login, mdp);
              if (u != null) {
-                 JOptionPane.showMessageDialog(rootPane, "Tout roule");
+                 JOptionPane.showMessageDialog(rootPane, "C'est parti ma poule");
+                  Principal p = new Principal();
+                  p.setVisible(true);
+                  this.setVisible(false);
             }
              else{
-             JOptionPane.showMessageDialog(rootPane, "roule pas");
+             JOptionPane.showMessageDialog(rootPane, "Dommage essaye encore");
              }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(rootPane, "Exp :"+e.getMessage());
