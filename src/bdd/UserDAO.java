@@ -16,7 +16,7 @@ public class UserDAO {
     public static User getByLoginAndPassword(String mail, String mdp) throws SQLException{
         User u = null;
         String sql = "SELECT * FROM users WHERE mail = ? AND mdp = ?";
-        Connection connexion = AccessBd.getConnection();
+        Connection connexion = AccessBD.getConnection();
         PreparedStatement prepare = connexion.prepareStatement(sql);
         prepare.setString(1, mail);
         prepare.setString(2, mdp);
@@ -39,7 +39,7 @@ public class UserDAO {
     
     public static void insertUser(User u) throws SQLException {
         String sql = "INSERT INTO personnes (nom, prenom, mail, mdp) VALUES (?, ?, ?, ?)";
-        Connection connexion = AccessBd.getConnection();
+        Connection connexion = AccessBD.getConnection();
         PreparedStatement prepare = connexion.prepareStatement(sql);
         prepare.setString(1, u.getNom());
         prepare.setString(2, u.getPrenom());
