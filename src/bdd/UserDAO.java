@@ -6,6 +6,7 @@ package bdd;
  * @author dsi
  */
 
+import fr.solutec.model.Objectif;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.PreparedStatement;
@@ -38,7 +39,7 @@ public class UserDAO {
     }
     
     public static void insertUser(User u) throws SQLException {
-        String sql = "INSERT INTO users(nom, prenom, mail, mdp) VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO users (nom, prenom, mail, mdp) VALUES (?, ?, ?, ?)";
         Connection connexion = AccessBD.getConnection();
         PreparedStatement prepare = connexion.prepareStatement(sql);
         prepare.setString(1, u.getNom());
@@ -52,10 +53,10 @@ public class UserDAO {
         String sql = "UPDATE objectifs SET temps_marche = ?, temps_course = ?, poids = ? WHERE id_user = ?";
         Connection connexion = AccessBD.getConnection();
         PreparedStatement prepare = connexion.prepareStatement(sql);
-        prepare.setString(1, o.getTemps_de_course());
-        prepare.setString(2, o.getTemps_de_marche());
-        prepare.setString(3, o.getPoids());
-        prepare.setString(4, u.getId());
+        prepare.setDouble(1, o.getTemps_de_course());
+        prepare.setDouble(2, o.getTemps_de_marche());
+        prepare.setDouble(3, o.getPoids());
+        prepare.setInt(4, u.getId());
         prepare.execute();
     }
 }

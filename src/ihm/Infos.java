@@ -221,7 +221,7 @@ public class Infos extends javax.swing.JFrame {
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
 
-        User u = Connexion.
+        User u = Connexion.u;
         
         txtLogin.setText(u.getMail());
         txtMdp.setText(u.getMdp());

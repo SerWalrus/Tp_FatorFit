@@ -145,10 +145,11 @@ public class Insciption extends javax.swing.JFrame {
 
             DateFormat d = new SimpleDateFormat("dd/MM/yyyy");
             User u = new User(0, nom, prenom, login, mdp, 1.80, " ", 80, d.parse("17/12/2021"), d.parse("15/12/2021"));
-
+               
             UserDAO.insertUser(u);
             if (u != null) {
-                JOptionPane.showMessageDialog(rootPane, "Tout roule");
+                JOptionPane.showMessageDialog(rootPane, "Super tu es inscrit");
+                this.setVisible(false); 
             } else {
                 JOptionPane.showMessageDialog(rootPane, "roule pas");
             }
