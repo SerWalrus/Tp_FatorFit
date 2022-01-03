@@ -38,7 +38,7 @@ public class UserDAO {
     }
     
     public static void insertUser(User u) throws SQLException {
-        String sql = "INSERT INTO personnes (nom, prenom, mail, mdp) VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO users (nom, prenom, mail, mdp) VALUES (?, ?, ?, ?)";
         Connection connexion = AccessBD.getConnection();
         PreparedStatement prepare = connexion.prepareStatement(sql);
         prepare.setString(1, u.getNom());

@@ -120,6 +120,7 @@ public class Principal extends javax.swing.JFrame {
         // TODO add your handling code here:
        Connexion c = new Connexion();
        c.setVisible(true);
+       this.setVisible(false);
     }//GEN-LAST:event_toggleDecoActionPerformed
 
     private void toggleObjActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toggleObjActionPerformed
