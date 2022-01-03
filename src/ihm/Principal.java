@@ -132,6 +132,7 @@ public class Principal extends javax.swing.JFrame {
         // TODO add your handling code here:
        Objectifs o = new Objectifs();
        o.setVisible(true);
+       this.setVisible(false);
     }//GEN-LAST:event_toggleObjActionPerformed
 
     private void toggleAideActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toggleAideActionPerformed
