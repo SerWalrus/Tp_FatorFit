@@ -54,6 +54,11 @@ public class Principal extends javax.swing.JFrame {
         toggleInf.setText("Informations");
 
         toggleAide.setText("Aide");
+        toggleAide.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                toggleAideActionPerformed(evt);
+            }
+        });
 
         toggleRecap.setText("Récapitulatif");
 
@@ -128,6 +133,11 @@ public class Principal extends javax.swing.JFrame {
        Objectifs o = new Objectifs();
        o.setVisible(true);
     }//GEN-LAST:event_toggleObjActionPerformed
+
+    private void toggleAideActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toggleAideActionPerformed
+        this.setVisible(false);
+        new Help().setVisible(true);
+    }//GEN-LAST:event_toggleAideActionPerformed
 
     /**
      * @param args the command line arguments
